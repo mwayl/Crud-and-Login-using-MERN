@@ -327,6 +327,10 @@ const getStudents=async ()=>{
                 <li>Password</li>
               </ul>
             </div>
+            <div className="student-data">
+              
+
+            </div>
           </div>
      </div>
 
