@@ -14,6 +14,7 @@ import cors from "cors";
 
 import authRouter from "./apiv1/routes/auth.mjs";
 import postRouter from "./apiv1/routes/post.mjs";
+import chatRouter from "./apiv1/routes/chat.mjs";
 import unAuthProfileRouter from './apiv1/unAuthRoutes/frontpost.mjs'
 import { decode } from "punycode";
 // import commentRouter from './routes/comment.mjs'
@@ -72,6 +73,7 @@ app.use("/api/v1",(req, res, next) => {
 });
 
 app.use("/api/v1", postRouter);
+app.use("/api/v1", chatRouter);
 
 
 // app.get("/", (req, res, next) => {

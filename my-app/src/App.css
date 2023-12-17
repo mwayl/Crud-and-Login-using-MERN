@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Poppins:wght@400;500&display=swap');
+
 .App {
   text-align: center;
 }
@@ -39,21 +41,21 @@
     background-color: #61dafb;
     display: inline;
     float: right;
+    
 }
 .ul-unauth-route{
-    background-color: #7749F8;
-    max-width: 160px;
+    min-width: 200px;
     min-height: 40px;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     position: absolute; 
-    margin-left: -180px;
+    margin-left: -220px;
     /* margin-left: 500px; */
     text-decoration: none;
     /* margin-top: 30px; */
-    background-color: #7749F8;
+    background-color: #7a7880;
     /* margin-top: 20px; */
  }
  li {
@@ -92,10 +94,12 @@
 
 /* if user is  on secure api */
 
-.nav-unauth-route-user{
+.nav-unauth-route-user1{
   background-color: #61dafb;
   display: inline;
   float: right;
+  margin-top: 3px;
+  /* margin-right: 300px; */
 }
 .ul-unauth-route-user{
   background-color: #7749F8;
@@ -157,6 +161,7 @@ color: white;
   font-weight: 800;
   color: #7749F8; 
 font-size: 16px;
+cursor: pointer;
 }
 
 @keyframes App-logo-spin {

@@ -3,6 +3,7 @@ import "./login.css";
 import axios from "axios";
 import ResultShower from "../../components/resultShower";
 import { GlobalContext } from "../../context/context";
+import { NavLink } from "react-router-dom";
 
 import { baseUrl } from "../../core";
 
@@ -30,7 +31,7 @@ function Login() {
         type: "USER_LOGIN",
         payload:response.data.data
       });
-
+console.log("helllooooooooooo "+response.data.data)
       // console.log("namae"+response.data.data.firstName)
       console.log(response.data ? response.data.message : undefined);
       setMessageFromServer(response.data.message);
@@ -52,7 +53,7 @@ function Login() {
   return (
     <div className="Main">
       <div className="header-login">
-        <h1 className="main-heading">Personal Blogging App</h1>
+        <h1 className="main-heading">Attendance Managment System</h1>
         {/* <button className="log-in">
           <a className="login-link" href="login.html">
             Sign up
@@ -65,6 +66,7 @@ function Login() {
       </div>
 
       <form className="Form-div-login" onSubmit={loginHandler}>
+        <h1>Login Form</h1>
         <br />
 
         <input
@@ -88,6 +90,10 @@ function Login() {
 
         <button className="login">Login</button>
         {/* <p class="sign-in">Already have an account? <b><a href="index.html">Sign Up</a></b></p>  */}
+
+        {/* <div className="login-signup-functionality">
+          <p>Don't have an account ? <NavLink to="/signup">Signup</NavLink></p>
+        </div> */}
       </form>
       <div className={`${showServerMessageDiv}`}>
         <ResultShower

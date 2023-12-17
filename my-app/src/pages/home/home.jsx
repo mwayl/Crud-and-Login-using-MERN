@@ -1,9 +1,12 @@
 import React from "react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect ,useContext} from "react";
 import axios from "axios";
 import "./home.css";
+import profilePic from "../../assests/random profile.jpg"
 
 import { baseUrl } from "../../core";
+import { GlobalContext } from "../../context/context";
+import { stat } from "fs";
 
 const Home = () => {
   const postTitleInputRef = useRef(null);
@@ -15,7 +18,9 @@ const Home = () => {
   const [alert, setAlert] = useState(null);
   const [post, allPosts] = useState([]);
   const [toggleRefresh, setToggleRefresh] = useState(false);
-
+  // const [selectedImage, setSelectedImage] = useState('');
+  const [time ,setTime] = useState("");
+  const {state,dispatch} = useContext(GlobalContext)
   // console.log(postTitleInputRef)
   const getAllPosts = async () => {
     try {
@@ -26,7 +31,9 @@ const Home = () => {
 
       isLoading(false);
       console.log(response.data);
+      // getProfilePicture();
       allPosts(response.data);
+     
       //   console.log(allPosts)
     } catch (error) {
       console.log(error.data);
@@ -35,6 +42,7 @@ const Home = () => {
   };
   useEffect(() => {
     getAllPosts();
+    // getProfilePicture();
 
     return () => {};
   }, [toggleRefresh]);
@@ -135,19 +143,68 @@ const Home = () => {
       isLoading(false);
     }
   };
-  // const submitPost= (event)=>{
-  //     alert("Submit")
+  const submitPost= (event)=>{
+      alert("Submit")
+  }
+
+  // const getProfilePicture = async () => {
+  //   try {
+  //     const picURL = await axios.get(`${baseUrl}/api/v1/getPicURl`, {
+  //       withCredentials: true
+  //     });
+  
+  //    if(!picURL.data.url){
+  //  setSelectedImage(profilePic)
+  //    }
+  //    else{
+  //     setSelectedImage(picURL.data.url)
+  //    }
+      
+  // //  setSelectedImage(picURL.data.url)
+  //     // Logging the URL and its type
+  //     console.log("the url is ", picURL.data.url);
+  //     console.log("the type off is ", typeof(picURL.data.url));
+  //     console.log("the url in state", selectedImage);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
   // }
+  
+// const postingTime = (postTime)=>{
+//      const dateObject = new Date(postTime)
+//      const nowDate =new Date().getTime();
+//      const postDuration =nowDate-dateObject
+//     const min =Math.floor(postDuration/(1000 * 60))
+//     const hour =Math.floor(postDuration/(1000 * 60 * 60))
+//     const day =Math.floor(postDuration/(1000 * 60 * 60 * 24))
+//     const month =Math.floor(postDuration/(1000 * 60 * 60 * 24 * 30))
+//     if(min < 60){
+//       setTime(min)
+//     }
+//     else if(hour < 12){
+//       setTime(hour)
+//     }
+//     else if(day < 30){
+//       setTime(day)
+//     } 
+//     else {
+//       setTime(month)
+//     }
+
+//      console.log(postDuration, "min", min, "hour", hour,"day",day ,"month",month);
+// }
+
+  
   return (
     <div>
-      <h1 className="heading">Crud App</h1>
+      <h1 className="heading-main">Blogging App</h1>
 
-      <div className="big-div">
-        <form onSubmit={searchPostHandler} className="search-form" >
+      <div className="big-div1">
+        <form onSubmit={searchPostHandler} className="search-form1" >
           <input
             type="text"
             placeholder="Search..."
-            className="search-bar"
+            className="search-bar1"
             ref={postSearchInputRef}
           ></input>
           <button className="search-bar-button">
@@ -156,7 +213,7 @@ const Home = () => {
 </svg>
           </button>
         </form>
-        <form onSubmit={submitPostHandler} className="posting">
+        <form onSubmit={submitPostHandler} className="posting1">
           {/* <label htmlFor='postTitleInput'>Title:</label> */}
           <input
             type="text"
@@ -189,7 +246,7 @@ const Home = () => {
           </span>
         </form>
         <div>
-          <div className="postDisplay">
+          <div className="post-Display">
             <p className="allBlog">All Blog</p>
 
             {post.map((posts, index) => (
@@ -241,8 +298,30 @@ const Home = () => {
                   </form>
                 ) : (
                   <div>
+                  <div className="profileInfoDiv">
+                    <div className="profilePicture">
+                    {posts.url === null  ?
+
+                    <img src={profilePic} alt="not found" id="dynamicPic" style={{width: '45px' ,height: '45px', borderRadius:"50px"}}></img>
+                    :<img src={posts.url} alt="not found" id="dynamicPic" style={{width: '45px' ,height: '45px',borderRadius:"50px"  }}></img>}
+
+                    {/* {selectedImage && 
+                    (<img src={selectedImage} alt="not found" id="dynamicPic" style={{width: '37px' ,height: '37px',borderRadius:"50px"}}></img>)
+                    } */}
+                     {/* {posts.url && 
+                   (<img src={posts.url} alt="not found" id="dynamicPic" style={{width: '37px' ,height: '37px',borderRadius:"50px"}}></img> )} */}
+                    </div>
+                 
+                    <div className="accountName" >{posts.firstName+" " + posts.lastName}</div>
+                    <div className="accountEmail">{posts.email} . 2d</div>
+                    
+                    {/* <div className="postingTime" onLoad={postingTime(posts.createdAt)}></div> */}
+                  </div>
+                  {/* <hr style={{marginTop:"12px"}}></hr> */}
+                  <div className="contentDiv">
                     <h2 className="title">{posts.title}</h2>
                     <p className="text">{posts.text}</p>
+                    </div>
                     <div className="lowerDiv">
                       <button
                         onClick={(e) => {

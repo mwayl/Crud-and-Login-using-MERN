@@ -69,15 +69,15 @@ const Home = () => {
   // }
   return (
     <div>
-      <h1 className="heading">Crud App</h1>
+      <h1 className="heading">Blogging App</h1>
       {/* <h1>{state.user._id}</h1> */}
 
-      <div className="big-div">
-        <form onSubmit={searchPostHandler} className="search-form" >
+      <div className="big-div front-post">
+        <form onSubmit={searchPostHandler} className="search-form1" >
           <input
             type="text"
             placeholder="Search..."
-            className="search-bar"
+            className="search-bar1"
             ref={postSearchInputRef}
           ></input>
           <button className="search-bar-button">
@@ -88,8 +88,8 @@ const Home = () => {
         </form>
        
         <div>
-          <div className="postDisplay">
-            <p className="allBlog">All Blog ha</p>
+          <div className="postDisplayUnauth">
+            {/* <p className="allBlog">All Blog </p> */}
 
             {post.map((posts, index) => (
               <div key={posts._id} className="post">

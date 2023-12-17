@@ -1,0 +1,235 @@
+*{
+    padding :0px;
+    margin: 0;
+    box-sizing: border-box;
+}
+.main-div{
+    display: flex;
+    justify-content: space-between;
+}
+.right-side{
+    Width:300px;
+    Height:100vh;
+    Left:-6px;
+    border: 1px solid #131212;
+}
+.logo-heading{
+    Width:106px;
+    Height:50px;
+    margin: 0 auto;
+    margin-Top:85px;
+    /* font-family:Montserrat; */
+    font-weight:600;
+    font-size:41px;
+    line-height:49.98px;   
+}
+.list-right-side{
+    height: 80px;
+    margin-left:80px ;
+    margin-top: 40px;
+    
+     /* background-color: aqua; */
+
+}
+li{
+    font-size: 1.3rem;
+   
+}
+.left-side{
+    width: 80%;
+    height: 100vh;
+    background-color: aquamarine;
+    
+}
+
+.heading-div{
+    width: 300px;
+    height: 70px;
+    background-color: blueviolet;
+    margin-top: 60px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+
+    justify-content: space-around;
+}
+.pic-logo{
+    width: 50px;
+    height: 50px;
+    background-color: #131212;
+    border-radius: 100px;
+    
+}
+.add-student-button{
+    margin-left: 53%;
+    margin-top: -55px;
+    position:absolute;
+    cursor: pointer;
+    padding:20px 50px 20px 50px; ;
+   font-size: 1rem;
+   font-weight: bold;
+   background-color: #5C93FA;
+   color:white;
+   border: 0px solid transparent;
+   border-radius: 5px;
+   
+   
+}
+
+
+
+
+
+/* add student form */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Adjust the z-index value as needed */
+  }
+  
+  .updatePasswordPopup {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    z-index: 1001; /* Make sure the popup is on top of the overlay */
+    
+  }
+.logo-add-student{
+    margin-top: -350px;
+    margin-left: 80px;
+}
+.Add-student{
+    margin-left: 00px;
+}
+  .addStudentDiv {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    height: 100vh;
+    max-width: 550px;
+    width: 100%;
+    background-color: #45a049;
+    /* margin-left: 600px; */
+    right: 0%;
+  }
+  
+  .addStudentDiv  .Form-div-addstudent {
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100vh;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* margin-left:-230px ; */
+    /* margin-top: 220px; */
+  }
+#dynamicPic{
+    margin-left: 130px;
+    margin-top: 80px;
+}
+.heading-student{
+    margin-left: 40px;
+}
+  .input-fields{
+   
+    background-color: #eaeaea;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  .input-fields input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  /* .login-cancelbutton{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  gap: 11px;
+  } */
+ .add{
+    width: 100px;
+    padding: 10px;
+    height: auto !important;
+    border-radius: 5px;
+    outline: none;
+    border:0px solid transparent;
+    background-color: #45a049;
+    margin-left: 350px;
+    margin-top: -300px;
+  }
+  
+  #select_imag {
+  
+    position: absolute;
+    cursor: pointer;
+    bottom: 60%;
+    left: 45%;
+  }
+  #select_imag svg{
+    color: rgb(0, 0, 0) ;
+  }
+  /* .login-cancelbutton .cancel-button{
+    margin: 0;
+    padding: 10px;
+  } */
+  .Form-div-login button {
+    width: 100%;
+   
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .Form-div-login button:hover {
+    background-color: #45a049;
+  }
+
+  .student{
+    width: 90%;
+    min-height:40vh ;
+    background-color: beige;
+    margin-top: 60px;
+    margin-left: 45px;
+  }
+  .value-div{
+    width: 90%;
+    height: 40px;
+    background-color: #5C93FA;
+
+  }
+  .heading-value{
+    display: flex;
+    justify-content: space-around;
+
+  }
+  .heading-value li{
+     font-size: 0.9rem;
+     margin-top: 10px;
+     color: white;
+  }
+
+

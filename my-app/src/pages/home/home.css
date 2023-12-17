@@ -3,47 +3,47 @@
     margin: 0;
     box-sizing: border-box;
 }
-.heading{
-    width: 200px;
+.heading-main{
+    width: 300px;
+    position: relative;
+    z-index: 111;
     background-color: #ffffff;
     font-size: 40px;
-    margin: 0 auto;
-    margin-top: 25px;
+    /* margin: 0 auto; */
+    margin-left: 20px;
+    margin-top: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
-.big-div{
+.big-div1{
     width: 100%;
    background-color: rgb(221, 223, 223);
    border-top: 2px dashed #bbbbbb;
-   margin-top: 25px;
+   margin-top: 15px;
 }
-.search-form{
- max-width: 360px;
- height: 50px;   
- background-color: #ffffff;
-
-  margin-left: 3%; 
- margin-top: -65px;
+.search-form1{
+    max-width: 330px;
+    height: 30px;
+    background-color: #ffffff;
+    margin-left: 33%;
+    margin-top: -60px;
+    position: relative;
 }
-.search-bar{
-    /* border: none; */
-    background: none;
+.search-bar1{
+  
+    padding: 12px 10px;
+    border-radius: 10px;
     outline: none;
-    height: 33px;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-    width: 270px;
-    /* margin-top: 5px; */
+    width: 285px;
+
 }
 .search-bar-button{
-    background: none;
-    outline: none;
-    height: 33px;
-    width: 40px;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
-    /* margin-top: 5px; */
-    background-color: #7749F8;
+  position: absolute !important;
+  padding: 14px 20px !important;
+  outline: none !important;
+  border: none !important;
+  height: auto !important;
+  width: auto !important;
+  right: 0%;
 }
 .post {
     /* border: 1px solid black; */
@@ -59,19 +59,58 @@
 }
 .post button{
     background-color: rgb(133, 133, 133);
-    width: 80px;
-    height: 25px;
+  
     border: none;
     font-size: 14px;
     font-weight: bold;
-    color: white
-    ;
+    color: white ;
+
+}
+.profileInfoDiv{
+    height: 6vh;
+    min-width: 100px;
+    max-width: 500px;
+    /* background-color: #1c4e80; */
+    margin-top: -10px;
+   
+}
+.profilePicture{
+    width: 37px;
+    height: 37px ;
+    border-radius:50px;
+}
+.accountName{
+    /* background-color: rgb(108, 227, 227); */
+    margin-top: -33px;
+    min-width: 100px;
+    max-width: 250px;
+    margin-left: 50px;
+    font-size: 0.80rem;
+    font-weight: bold;
+}
+.accountEmail{
+    /* background-color: rgb(75, 176, 176); */
+    
+    display: inline-block;
+    height: 14px;
+    min-width: 100px;
+    text-align: center;
+    margin-left: 50px;
+    font-size: 0.70rem;
+    font-weight: 700; 
+    margin-top:-50px;
+    color: rgb(123, 128, 128);
+    
+}
+.contentDiv{
+    /* background-color: aqua; */
+    margin-top: 25px;
 
 }
 .title {
     /* background-color: #ffffff; */
     min-width: 45vh;
-    margin-top: -20px;
+    margin-bottom: -10px;
     font-size: 2rem;
 }
 .text{
@@ -84,15 +123,16 @@
     display: flex;
     justify-content: space-between;
 }
-.posting{
+.posting1{
     width: 88%;
    min-height: 54vh;
     background-color: #ffffff;
     margin-left: 80px;
-    margin-top: 130px;
+    margin-top: 80px;
     border-radius: 4px;
     z-index: 1;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+    padding: 20px;
     
 }                                      
 .headingOfPost,.discriptionOfPost{
@@ -103,6 +143,8 @@
     margin-top: 40px;
     border: 1px solid #C6CCD2;
     border-style: groove;
+    resize: none;
+    font-family: unset;
     color: #363738;
     padding-left: 10px;
     margin-left: 75px;
@@ -129,11 +171,12 @@
     margin-left: 75px;
 }
 
-.postDisplay{
+.post-Display{
     width: 100%;
     min-height: 100vh;
     background-color: transparent;
-    margin-top: -40px;
+    border-top: 1px solid;
+    margin-top: 40px;
 
 }
 .allBlog{

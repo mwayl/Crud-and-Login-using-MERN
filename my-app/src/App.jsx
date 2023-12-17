@@ -1,20 +1,23 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
+
+
 // import logo from './logo.svg';
 import "./App.css";
 import axios from "axios";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./pages/home/home";
-import About from "./pages/about/about";
+// import About from "./pages/about/about";
 import Chat from "./pages/chat/chat";
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import FrontPost from "./pages/frontpost/frontpost";
+import ChatUser from "./pages/chatUser/chatUser"
+import AdminPanel from "./pages/adminPanel/adminPanel";
+
 import { GlobalContext } from "./context/context";
 // import { baseUrl } from "../core";
 import {baseUrl} from "./core"
-// import { json } from "express"
-// import {splash_pic} from "./assests/splash screen.gif" 
-// import {splash_pic} from "./assests/splashScreen";
+
 
 
 
@@ -46,6 +49,9 @@ function App() {
         const response = await axios.get(`${baseUrl}/api/v1/profile`, {
           withCredentials: true,
         });
+        // const response = await axios.get(`${baseUrl}/ping`, {
+        //   withCredentials: true,
+        // });
         // setIsLogin(true);
         dispatch({
           type: "USER_LOGIN",
@@ -84,28 +90,31 @@ const logoutHandler =async ()=>{
 
 // state.isLogin = true;
   return (
+    
     <div>
+     
+
       {/* adimn routes */}
       {state.isLogin === true && state.role === "admin" ? (
         <>
-          <nav>
+          {/* <nav>
             <ul>
-              <li>
+              <li className="admin-home">
                 <Link to={"/"}>Admin Home</Link>
               </li>
-              <li>
+              <li className="admin-about">
                 <Link to={"/about"}>Admin About</Link>
               </li>
-              <li>
+              <li className="admin-chat">
                 <Link to={"/chat"}>Admin Chat</Link>
               </li>
            <button onClick={logoutHandler}>Admin Logout</button>
             </ul>
-          </nav>
+          </nav> */}
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="chat" element={<Chat />} />
+            <Route path="/" element={<AdminPanel />} />
+            {/* <Route path="about" element={<About />} />
+            <Route path="chat" element={<Chat />} /> */}
             <Route path="*" element={<Navigate to="/" replace={true} />} />
           </Routes>
         </>
@@ -114,26 +123,30 @@ const logoutHandler =async ()=>{
 {/* user routes */}
  {state.isLogin === true && state.role === "user" ? (
         <>
-          <nav className="nav-unauth-route-user">
+          <nav className="nav-unauth-route-user1">
             <ul className="ul-unauth-route-user">
-              <li>
+              <li className="home">
                 <Link to={"/"} style={{textDecoration:"none", border:"none"}}><p className="unauth-route-name-user">Home</p></Link>
               </li>
-              <li>
+              {/* <li className="about">
                 <Link to={"/about"} style={{textDecoration:"none"}}><p className="unauth-route-name-user">About</p></Link>
-              </li>
+              </li> */}
               {/* <li>
                 <Link className="bg-indigo-500 rounded text-white py-1 px-6 m-2" to={`/profile/${state.user._id}`}>Profile</Link>
               </li> */}
-              <li>
+              {/* <li className="chat">
                 <Link to={"/chat"} style={{textDecoration:"none"}}><p className="unauth-route-name-user">Chat</p></Link>
+              </li> */}
+              <li className="chatUser">
+                <Link to={"/chatUser"} style={{textDecoration:"none"}}><p className="unauth-route-name-user">Users</p></Link>
               </li>
               <button onClick={logoutHandler} className="unauth-logout-button-user">Admin Logout</button>
             </ul>
           </nav>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
+            {/* <Route path="about" element={<About />} /> */}
+            <Route path="chatUser" element={<ChatUser />} />
             <Route path="chat" element={<Chat />} />
             {/* <Route path="profile/:userId" element={<Profile />} /> */}
             <Route path="*" element={<Navigate to="/" replace={true} />} />
@@ -145,8 +158,11 @@ const logoutHandler =async ()=>{
 {/* unauth routes */}
       {state.isLogin === false ? (
         <>
-          <nav className="nav-unauth-route">
+          {/* <nav className="nav-unauth-route">
             <ul className="ul-unauth-route">
+            <li>
+                <Link to={"/frontpost"} style={{textDecoration:"none", border:"none"}}><p className="unauth-route-name">Post</p></Link>
+              </li>
               <li>
                 <Link to={"/login"} style={{textDecoration:"none", border:"none"}}><p className="unauth-route-name">Login</p></Link>
               </li>
@@ -154,12 +170,12 @@ const logoutHandler =async ()=>{
                 <Link to={"/signup"} style={{textDecoration:"none"}}><p className="unauth-route-name">Signup</p></Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
           <Routes>
             <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="frontpost" element={<FrontPost />} />
-            <Route path="*" element={<Navigate to="/FrontPost" replace={true} />} />
+            {/* <Route path="signup" element={<Signup />} />
+            <Route path="frontpost" element={<FrontPost />} /> */}
+            <Route path="*" element={<Navigate to="/Login" replace={true} />} />
           </Routes>
         </>
       ) : null}
@@ -167,21 +183,7 @@ const logoutHandler =async ()=>{
       {/* splash screen */}
        {state.isLogin === null ? (
         <div>
-          <img src="./assets/splashScreen.gif"
-          className="splash_pic"
-          height="100%"
-          width="100%"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            margin: 'auto',
-            zIndex:-1
-            
-          }}
-          alt="splash screen" ></img>
+        
         </div>
 
        ):null}

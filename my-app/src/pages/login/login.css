@@ -67,9 +67,12 @@ color: #3d4247;
 
 
 .Form-div-login{
-   min-height: 340px;
-   /* min-height: 40vmin; */
+   
+   padding: 20px;
+   height: auto;
     width: 30%;
+    min-height: 360px;
+
     background-color:rgb(255, 255, 255);
     margin: 0 auto;
     margin-top: 70px;
@@ -99,14 +102,15 @@ color: #3d4247;
 }
 
 .login{
-    width: 100px;
-    height: 30px;
+    width: 100%;
+
     border-radius: 5px;
     border-style: none ;
     background-color: #7749F8;
     color: white;
     font-weight: 600;
 
+    padding: 12px 40px;
 }
 
 

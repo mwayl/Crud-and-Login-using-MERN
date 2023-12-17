@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./signup.css";
 import axios from "axios";
 // import ResultShower from "../../components/resultShower";
@@ -79,6 +80,7 @@ function Signup() {
       </div>
 
       <form className="Form-div" onSubmit={submitInformationHandler}>
+        <h3>Sigup Form</h3>
         <br />
 
         <input
@@ -128,6 +130,9 @@ function Signup() {
         <br />
         <button className="signup">Signup</button>
         {/* <p class="sign-in">Already have an account? <b><a href="index.html">Sign Up</a></b></p>  */}
+        <div className="login-here">
+          <p>Already have an account <NavLink to="/login">Login</NavLink></p>
+        </div>
       </form>
 
       {/* <div className={`passwordChecker ${showPasswordDiv}`}>

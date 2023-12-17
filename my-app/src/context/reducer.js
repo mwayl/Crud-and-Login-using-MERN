@@ -1,7 +1,7 @@
 export const reducer = (state, action) => {
   switch (action.type) {
     case "USER_LOGIN": {
-      // console.log("here its "+action.payload.firstName, action.payload.lastName,action.payload.isAdmin);
+      console.log("here its "+action.payload.firstName, action.payload.lastName,action.payload.isAdmin);
       if(action.payload?.firstName
         && action.payload?.lastName
         && action.payload?.email){
